@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/css/swiper.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="./swipper.css">-->
+    <style>
+        .light-mode {
+            background-color: #483d8b;
+            color: greenyellow;
+        }
+         ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #a1b5b1;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #70908b;
+  }
+    </style>
+    <title>Bookshelter</title>
+</head>
+
+<body>
+    <header class="container mt-3">
+        <div class="d-flex justify-content-between">
+            <img src="./images/Group93.png" alt="logo">
+            <input type="search" class="w-50 ps-4 pe-4  rounded-5" name="search" id="search"
+                placeholder="🔎    Search ...">
+            <div class="d-flex gap-2  align-items-center">
+                <img class=" mode" src="./images/Group.png" alt="mode" width="25" height="25">
+                <a href="http://127.0.0.1:5501/pages/login.html" class="btn sign-app bg-primary text-white"
+                    style="width: 100px;">Sign up</a>
+                <a href="http://127.0.0.1:5501/pages/admin.html" style="display: none;"
+                    class="btn logout bg-primary text-white  ">Logout</a href="http://127.0.0.1:5501/pages/admin.html">
+            </div>
+        </div>
+        <div class="nav shadow d-flex justify-content-between mt-3 pt-2 pb-2">
+            <p></p>
+            <h4>Showing <span class="results"></span> Result(s)</h4> 
+            <select class="form-select w-25" aria-label="Default select example" id="select">
+            </select>
+        </div>
+    </header>
+ 
+
+    <!-- main section -->
+    <main class="container main  mt-5 mb-5 gap-3">
+  <!-- swipper cards -->
+    <div class="container mt-3">
+        <div class="swiper-container swiper-initialize shadow p-2 rounded-2">
+            <div class="swiper-wrapper ">
+            </div>
+            <!-- Navigation -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+            <!-- Swipper Pagination  -->
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+    <hr style="height: 10px; background-color: green; border-radius: 30px;">
+        <div class="d-flex mt-5">
+        <!-- Bookmarks -->
+        <div style="height: 90px;  max-height: 100px;" class="w-25">
+        <div style="min-height: 10px; " class="Bookmarks  rounded-2  p-2">
+            <h4>Bookmarks</h4>
+            <p>If you don't like to read, you haven't found the right book</p>
+            <div class="select-bookmarks " style="height: 410px;  overflow-y: scroll;"></div>
+        </div>
+        </div>
+        <div class="main-posts w-75">
+
+            <!-- bootom cards -->
+            <div class="main-bottom d-flex flex-wrap justify-content-around gap-4">
+            </div>
+        </div>
+        </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.8.4/swiper-bundle.min.js"></script>
+    <script type="module" src="./js/main.js"></script>
+</body>
+
+</html>

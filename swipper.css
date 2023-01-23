@@ -1,0 +1,7 @@
+/* .swiper-wrapper img {
+  width: 500px;
+  /* height: 200px; */
+.swiper-wrapper{
+  max-height: 433px;
+  min-height: 433px;
+}
