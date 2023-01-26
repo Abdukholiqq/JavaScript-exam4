@@ -209,6 +209,7 @@ mainPosts.addEventListener("click", function (e) {
       });
   }
   if (Target.matches(".back")) {
+    window.location.reload()
     SinglePage.style.display = "none";
   }
 });
