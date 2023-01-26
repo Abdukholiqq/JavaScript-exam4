@@ -7,7 +7,7 @@ const Admin = document.querySelector(".lgn");
 
 Exit.addEventListener("click", (e) => {
   e.preventDefault();
-  window.location.href = "http://127.0.0.1:5501/index.html";
+  window.location.href = "../index.html";
 });
 
 let error = document.querySelector(".error-message");
@@ -40,7 +40,7 @@ elForm.addEventListener("submit", (e) => {
       });
 
       if (res.status === 201) {
-        window.location.href = "http://127.0.0.1:5501/pages/admin.html";
+        window.location.href = "../pages/admin.html";
       } else {
         error.style.display = "block";
         error.textContent = "Email yoki parol oldin ishlatilgan";
@@ -67,6 +67,6 @@ Admin.addEventListener("click", () => {
     error.style.display = "block";
     error.textContent = "Iltimos oldin ro'yxatdan o'ting !";
   } else if (getItem == "token") {
-    window.location.href = "http://127.0.0.1:5501/pages/admin.html";
+    window.location.href = "../pages/admin.html";
   }
 });

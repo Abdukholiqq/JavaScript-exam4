@@ -11,7 +11,7 @@
     <!-- <link rel="stylesheet" href="./swipper.css">-->
     <style>
         .light-mode {
-            background-color: #483d8b;
+            background-color: #02010a;
             color: greenyellow;
         }
          ::-webkit-scrollbar {
@@ -41,10 +41,10 @@
                 placeholder="🔎    Search ...">
             <div class="d-flex gap-2  align-items-center">
                 <img class=" mode" src="./images/Group.png" alt="mode" width="25" height="25">
-                <a href="http://127.0.0.1:5501/pages/login.html" class="btn sign-app bg-primary text-white"
+                <a href="./pages/login.html" class="btn sign-app bg-primary text-white"
                     style="width: 100px;">Sign up</a>
-                <a href="http://127.0.0.1:5501/pages/admin.html" style="display: none;"
-                    class="btn logout bg-primary text-white  ">Logout</a href="http://127.0.0.1:5501/pages/admin.html">
+                <a href="./pages/admin.html" style="display: none;"
+                    class="btn logout bg-primary text-white  ">Logout</a>
             </div>
         </div>
         <div class="nav shadow d-flex justify-content-between mt-3 pt-2 pb-2">
@@ -85,6 +85,7 @@
             <!-- bootom cards -->
             <div class="main-bottom d-flex flex-wrap justify-content-around gap-4">
             </div>
+            <div style="display: none; height: 100vh; position: fixed; left: 0; top:0px; z-index: 500;" class="SinglePage bg-primary w-100"></div>
         </div>
         </div>
     </main>
