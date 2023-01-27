@@ -1,9 +1,5 @@
- 
 import Sliderr from "./slider.js";
-//  localStorage  dan bookmark o'chirilsa darkmode ishlamay qolayabdi  ???
-alert(
-  "Darkmode ishlashi uchun birorta bookmark tanlang , so'ngra qayta urunib ko'ring"
-);
+ 
 const body = document.querySelector("body");
 const mainPosts = document.querySelector(".main");
 const Bookmarks = document.querySelector(".select-bookmarks");
@@ -18,6 +14,53 @@ const elBody = document.querySelector("body");
 const logout = document.querySelector(".logout");
 const signapp = document.querySelector(".sign-app");
 const mode = document.querySelector(".mode");
+
+
+//   This codes for  select button
+// Loginn()
+const selectBtns = localStorage.getItem("token");
+if (selectBtns != "token") {
+  logout.style.display = "none";
+  signapp.style.display = "block";
+} else if (selectBtns == "token") {
+  logout.style.display = "block";
+  signapp.style.display = "none";
+}
+
+logout.addEventListener("click", (e) => {
+  window.location.href = "../pages/admin.html";
+});
+
+window.addEventListener("load", () => {
+  const theme = localStorage.getItem("theme");
+  if (theme === "light") {
+    elBody.classList.add("light-mode");
+  }
+});
+mode.addEventListener("click", () => {
+  elBody.classList.toggle("light-mode");
+  if (elBody.classList.contains("light-mode")) {
+    localStorage.setItem("theme", "light");
+  } else {
+    localStorage.setItem("theme", "dark");
+  }
+});
+//  OVOZ ORQALI backgroundColor  berish
+const recognition = new webkitSpeechRecognition();
+recognition.lang = "en-US";
+recognition.interimResults = false;
+recognition.maxAlternatives = 1;
+
+mode.onclick = function () {
+  alert("Ovoz orqali O'zgartirish mumkin");
+  recognition.start();
+  console.log("Ready to receive a color command.");
+};
+recognition.onresult = function (event) {
+  const color = event.results[0][0].transcript;
+  body.style.backgroundColor = color;
+};
+
 
 //   API  post  qilish
 let arrPosts = [];
@@ -214,49 +257,5 @@ mainPosts.addEventListener("click", function (e) {
   }
 });
 
-//   This codes for  select button
-// Loginn()
-const selectBtns = localStorage.getItem("token");
-if (selectBtns != "token") {
-  logout.style.display = "none";
-  signapp.style.display = "block";
-} else if (selectBtns == "token") {
-  logout.style.display = "block";
-  signapp.style.display = "none";
-}
-
-logout.addEventListener("click", (e) => {
-  window.location.href = "../pages/admin.html";
-});
-
-window.addEventListener("load", () => {
-  const theme = localStorage.getItem("theme");
-  if (theme === "light") {
-    elBody.classList.add("light-mode");
-  }
-});
-mode.addEventListener("click", () => {
-  elBody.classList.toggle("light-mode");
-  if (elBody.classList.contains("light-mode")) {
-    localStorage.setItem("theme", "light");
-  } else {
-    localStorage.setItem("theme", "dark");
-  }
-});
-//  OVOZ ORQALI backgroundColor  berish
-const recognition = new webkitSpeechRecognition();
-recognition.lang = "en-US";
-recognition.interimResults = false;
-recognition.maxAlternatives = 1;
-
-mode.onclick = function () {
-  alert("Ovoz orqali O'zgartirish mumkin");
-  recognition.start();
-  console.log("Ready to receive a color command.");
-};
-recognition.onresult = function (event) {
-  const color = event.results[0][0].transcript;
-  body.style.backgroundColor = color;
-};
 // SLIDER CODE
 Sliderr();
