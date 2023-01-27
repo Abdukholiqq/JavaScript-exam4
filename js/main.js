@@ -61,6 +61,8 @@ recognition.onresult = function (event) {
   body.style.backgroundColor = color;
 };
 
+// SLIDER CODE
+Sliderr();
 
 //   API  post  qilish
 let arrPosts = [];
@@ -257,5 +259,4 @@ mainPosts.addEventListener("click", function (e) {
   }
 });
 
-// SLIDER CODE
-Sliderr();
+
