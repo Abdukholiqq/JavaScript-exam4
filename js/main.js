@@ -168,6 +168,41 @@ function render(date) {
   });
 }
 
+///////   single page
+mainPosts.addEventListener("click", function (e) {
+  const Target = e.target;
+  const id = Target.dataset.id;
+  if (Target.matches(".more-info")) {
+    SinglePage.style.display = "block";
+    fetch(`https://63c3b5c0a9085635752b7972.mockapi.io/create/${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        const single = document.createElement("div");
+        single.className = "d-flex justify-content-center mt-3 gap-3";
+        single.innerHTML = `
+            <div class="flex-row text-center gap-3">
+              <img src="${data.banner}" alt="image" height="500">
+              <h2> ${data.title}</h2>
+              <h2> ${data.description}</h2> 
+              <h3> ${data.description} . ${data.createdAt}</h3>
+              </div> 
+              <button style="height:35px; width:30px" class="bg-danger btn text-light back">X</button>
+              `;
+        SinglePage.appendChild(single);
+      });
+  }
+  if (Target.matches(".back")) {
+    window.location.reload()
+    SinglePage.style.display = "none";
+  }
+});
+
+
+
+
+
+
+// bookmark
 let book = [
   {
     title: "title 1 ",
@@ -230,33 +265,6 @@ function SelectBookmarks(results) {
 //     // //  SelectBookmarks(result)
 //   }
 // });
-///////   single page
-mainPosts.addEventListener("click", function (e) {
-  const Target = e.target;
-  const id = Target.dataset.id;
-  if (Target.matches(".more-info")) {
-    SinglePage.style.display = "block";
-    fetch(`https://63c3b5c0a9085635752b7972.mockapi.io/create/${id}`)
-      .then((res) => res.json())
-      .then((data) => {
-        const single = document.createElement("div");
-        single.className = "d-flex justify-content-center mt-3 gap-3";
-        single.innerHTML = `
-            <div class="flex-row text-center gap-3">
-              <img src="${data.banner}" alt="image" height="500">
-              <h2> ${data.title}</h2>
-              <h2> ${data.description}</h2> 
-              <h3> ${data.description} . ${data.createdAt}</h3>
-              </div> 
-              <button style="height:35px; width:30px" class="bg-danger btn text-light back">X</button>
-              `;
-        SinglePage.appendChild(single);
-      });
-  }
-  if (Target.matches(".back")) {
-    window.location.reload()
-    SinglePage.style.display = "none";
-  }
-});
+
 
 
